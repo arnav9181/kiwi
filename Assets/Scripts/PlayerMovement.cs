@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     private float horizontal;
@@ -7,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 8f;
     private bool isFacingRight = true;
     public Animator animator;
+
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -20,11 +23,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            animator.SetBool("IsJumping", true);
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            animator.SetBool("IsJumping", true);
+
         }
 
         Flip();
@@ -38,7 +44,9 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        animator.SetBool("IsJumping", false);
     }
+
 
     private void Flip()
     {
