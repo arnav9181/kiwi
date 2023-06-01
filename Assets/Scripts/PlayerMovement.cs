@@ -1,5 +1,9 @@
 using UnityEngine;
 
+// Bossa Antigua by Kevin MacLeod | https://incompetech.com/
+// Music promoted by https://www.chosic.com/free-music/all/
+// Creative Commons Creative Commons: By Attribution 3.0 License
+// http://creativecommons.org/licenses/by/3.0/
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private AudioSource collectAudio;
 
     void Start()
     {
@@ -91,6 +96,14 @@ public class PlayerMovement : MonoBehaviour
             Vector3 localScale = transform.localScale;
             localScale.x *= -1f;
             transform.localScale = localScale;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Fruits") {
+            Destroy(collision.gameObject);
+            //cm.coinCount++;
+            collectAudio.Play(0);
         }
     }
 }
