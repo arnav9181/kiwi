@@ -58,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if(IsGrounded()){
+            animator.SetBool("IsJumping", false);
+        }
+
         Flip();
     }
 
@@ -75,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        animator.SetBool("IsJumping", false);
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
