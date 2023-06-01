@@ -9,11 +9,21 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true;
     public Animator animator;
 
+    private bool isAttacking = false;
+    private float attackTime = .25f;
+    private float timer = 0;
+    private GameObject attackArea;
+
 
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+
+    void Start()
+    {
+        attackArea = transform.GetChild(1).gameObject;
+    }
 
     void Update()
     {
@@ -33,7 +43,29 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        if(Input.GetKeyDown(KeyCode.RightShift)){
+            Attack();
+        }
+
+        if(isAttacking){
+            timer += Time.deltaTime;
+
+            if(timer >= attackTime){
+                timer = 0;
+                isAttacking = false;
+                animator.SetBool("IsAttacking", isAttacking);
+                attackArea.SetActive(false);
+            }
+        }
+
         Flip();
+    }
+
+    private void Attack()
+    {
+        isAttacking = true;
+        animator.SetBool("IsAttacking", isAttacking);
+        attackArea.SetActive(true);
     }
 
     private void FixedUpdate()
