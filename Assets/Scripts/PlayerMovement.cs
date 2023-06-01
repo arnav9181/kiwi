@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Fruits") {
+        if (collision.gameObject.tag == "Fruit") {
             Destroy(collision.gameObject);
             //cm.coinCount++;
             collectAudio.Play(0);
