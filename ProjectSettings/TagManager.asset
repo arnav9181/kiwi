@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - OneWayPlatform
+  - Fruit
+  - Light
+  - Background
   layers:
   - Default
   - TransparentFX

@@ -143,6 +143,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Light"){
             Debug.Log("YOU'VE BEEN CAUGHT");
+            Animator bg = GameObject.FindWithTag("Background").GetComponent<Animator>();
+            bg.SetBool("IsCaught", true);
         }
     }
 }
