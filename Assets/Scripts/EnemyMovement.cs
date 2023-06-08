@@ -34,13 +34,13 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > rightLimit)
+        if (transform.position.x >= rightLimit)
         {
             direction = -1; // move left
             // spriteRenderer.flipX = false; // sprite faces left
             Flip();
         }
-        else if (transform.position.x < leftLimit)
+        else if (transform.position.x <= leftLimit)
         {
             direction = 1; // move right
             // spriteRenderer.flipX = true; // sprite faces right

@@ -141,5 +141,8 @@ public class PlayerMovement : MonoBehaviour
             //cm.coinCount++;
             collectAudio.Play(0);
         }
+        if (collision.gameObject.tag == "Light"){
+            Debug.Log("YOU'VE BEEN CAUGHT");
+        }
     }
 }
