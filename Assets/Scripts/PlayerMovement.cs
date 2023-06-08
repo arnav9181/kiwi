@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private AudioSource collectAudio;
 
+    [SerializeField] AudioSource attackAudio;
+
     void Start()
     {
         attackArea = transform.GetChild(1).gameObject;
@@ -64,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(isAttacking){
             timer += Time.deltaTime;
-
+            attackAudio.Play(0);
             if(timer >= attackTime){
                 timer = 0;
                 isAttacking = false;
