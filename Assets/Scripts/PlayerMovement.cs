@@ -27,11 +27,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private AudioSource collectAudio;
 
+
     [SerializeField] AudioSource attackAudio;
+    [SerializeField] AudioSource AlarmAudio;
+
+    //Hide Code
+    private bool isHidden = false;
+    private bool canHide = true;
+    public float hideTime = 1.5f;
+    private float hideTimer = 0f;
+    public float hideCoolDownTime = 2f;
+    private SpriteRenderer sr;
 
     void Start()
     {
         attackArea = transform.GetChild(1).gameObject;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -57,6 +68,33 @@ public class PlayerMovement : MonoBehaviour
             if (currentOneWayPlatform != null)
             {
                 StartCoroutine(DisableCollision());
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q)){
+            if(canHide){
+                isHidden = true;
+                sr.color = new Color(1f, 1f, 1f, .5f);
+                canHide = false;
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
+
+        if(isHidden){
+            hideTimer += Time.deltaTime;
+            if (hideTimer >= hideTime){
+                hideTimer = 0;
+                isHidden = false;
+                sr.color = new Color(1f, 1f, 1f, 1f);
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
+
+        if(!canHide){
+            hideTimer += Time.deltaTime;
+            if(hideTimer >= hideCoolDownTime){
+                hideTimer = 0;
+                canHide = true;
             }
         }
 
@@ -145,6 +183,11 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("YOU'VE BEEN CAUGHT");
             Animator bg = GameObject.FindWithTag("Background").GetComponent<Animator>();
             bg.SetBool("IsCaught", true);
+            AudioSource mainMusic = GameObject.FindWithTag("MainMusic").GetComponent<AudioSource>();
+            mainMusic.Stop();
+            if(!AlarmAudio.isPlaying){
+                AlarmAudio.Play();
+            }
         }
     }
 }
