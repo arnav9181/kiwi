@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 1106510697301877273}
   - component: {fileID: 1106510697301877271}
   - component: {fileID: 1106510697301877272}
+  - component: {fileID: 6060786746284939646}
   m_Layer: 0
   m_Name: LightSprite
   m_TagString: Light
@@ -245,3 +246,16 @@ PolygonCollider2D:
     - - {x: 0.72248304, y: -0.0039021224}
       - {x: -0.3578568, y: 0.14094645}
       - {x: -0.3571529, y: -0.13496356}
+--- !u!114 &6060786746284939646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106510697301877274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff63d2e5ef55a43fb96a77e58c18dfcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlarmAudio: {fileID: 0}
