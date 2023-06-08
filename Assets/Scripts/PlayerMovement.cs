@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField] AudioSource attackAudio;
-    [SerializeField] AudioSource AlarmAudio;
 
     //Hide Code
     private bool isHidden = false;
@@ -76,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
                 isHidden = true;
                 sr.color = new Color(1f, 1f, 1f, .5f);
                 canHide = false;
-                GetComponent<BoxCollider2D>().enabled = false;
+                // GetComponent<BoxCollider2D>().enabled = false;
+                gameObject.tag = "HiddenPlayer";
             }
         }
 
@@ -86,7 +86,8 @@ public class PlayerMovement : MonoBehaviour
                 hideTimer = 0;
                 isHidden = false;
                 sr.color = new Color(1f, 1f, 1f, 1f);
-                GetComponent<BoxCollider2D>().enabled = false;
+                // GetComponent<BoxCollider2D>().enabled = false;
+                gameObject.tag = "Player";
             }
         }
 
@@ -178,16 +179,6 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
             //cm.coinCount++;
             collectAudio.Play(0);
-        }
-        if (collision.gameObject.tag == "Light"){
-            Debug.Log("YOU'VE BEEN CAUGHT");
-            Animator bg = GameObject.FindWithTag("Background").GetComponent<Animator>();
-            bg.SetBool("IsCaught", true);
-            AudioSource mainMusic = GameObject.FindWithTag("MainMusic").GetComponent<AudioSource>();
-            mainMusic.Stop();
-            if(!AlarmAudio.isPlaying){
-                AlarmAudio.Play();
-            }
         }
     }
 }

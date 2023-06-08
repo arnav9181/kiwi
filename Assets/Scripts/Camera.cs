@@ -8,7 +8,7 @@ public class Camera : MonoBehaviour
     private float rightLimit;
 
     public float distance = .3f;
-    private int direction = 1;
+    public int direction = 1;
 
     public float speed = 10f;
 

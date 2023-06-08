@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5361807398998143932}
   - component: {fileID: 5216108938567092009}
   - component: {fileID: 8353645715001993793}
+  - component: {fileID: 4707168943843804363}
   m_Layer: 0
   m_Name: Light
   m_TagString: Light
@@ -113,6 +114,19 @@ PolygonCollider2D:
     - - {x: 0.7379428, y: -0.006171815}
       - {x: -0.39565805, y: 0.1366504}
       - {x: -0.39565793, y: -0.14141108}
+--- !u!114 &4707168943843804363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612679639492640233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff63d2e5ef55a43fb96a77e58c18dfcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlarmAudio: {fileID: 2786219416992773707, guid: 75bce580b2059485fb4edf4868c0ea57, type: 3}
 --- !u!1 &2989592274904465307
 GameObject:
   m_ObjectHideFlags: 0
