@@ -23,7 +23,7 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.GetChild(0).rotation.z);
+        // Debug.Log(transform.GetChild(0).rotation.z);
         if(transform.GetChild(0).rotation.z < leftLimit){
             direction = 1; //go right
         }
