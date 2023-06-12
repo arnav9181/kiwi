@@ -28,6 +28,7 @@ public class GameData : MonoBehaviour
         }
         
         if (groceryList.Count == 0) {
+            //Win condition
             Debug.Log("You win!");
         }
         Debug.Log(groceryList.Count);
