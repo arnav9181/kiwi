@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public float patrolDistance = 10f;
     private float leftLimit;
     private float rightLimit;
-    private int direction = 1; // 1 for moving right, -1 for moving left
+    private int direction = -1; // 1 for moving right, -1 for moving left
     //private SpriteRenderer spriteRenderer; // To flip the sprite depending on the direction
     public Animator animator;
 
@@ -21,14 +21,14 @@ public class EnemyMovement : MonoBehaviour
         leftLimit = startingPosition - patrolDistance;
         rightLimit = startingPosition + patrolDistance;
         // spriteRenderer = GetComponent<SpriteRenderer>(); // get the SpriteRenderer component
-        if (direction == 1)
-        {
-            Flip();
-        }
-        else
-        {
-            Flip();
-        }
+        // if (direction == 1)
+        // {
+        //     Flip();
+        // }
+        // else
+        // {
+        //     Flip();
+        // }
     }
  
     // Update is called once per frame

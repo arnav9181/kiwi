@@ -32,14 +32,9 @@ public class GameData : MonoBehaviour
         }
         
         if (groceryList.Count == 0) {
-<<<<<<< HEAD
-            //Win condition
-            Debug.Log("You win!");
-=======
             //Debug.Log("You win!");
             finished = true;
             //StartCoroutine(ReturnToMainMenu());
->>>>>>> da441e8dc684d5f49fce6b3b72e82dba0b245853
         }
         Debug.Log(groceryList.Count);
     }
