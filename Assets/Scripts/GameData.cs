@@ -11,6 +11,7 @@ public class GameData : MonoBehaviour
     private static Dictionary<string, TextMeshProUGUI> groceryList;
     private static float timer = 0f;
     private static float timeToChange = 2f;
+    private static bool finished = false;
 
     public static List<string> getFruits() {
         return fruitList;
@@ -32,10 +33,7 @@ public class GameData : MonoBehaviour
         
         if (groceryList.Count == 0) {
             //Debug.Log("You win!");
-            if(timer >= timeToChange){
-                SceneManager.LoadScene(0);
-            }
-            timer += Time.deltaTime;
+            finished = true;
             //StartCoroutine(ReturnToMainMenu());
         }
         Debug.Log(groceryList.Count);
@@ -49,7 +47,13 @@ public class GameData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(timer >= timeToChange){
+            SceneManager.LoadScene(0);
+        }
+        else if(finished){
+            Debug.Log("Timer is incrimenting");
+            timer += Time.deltaTime;
+        }
     }
 
     // public IEnumerator ReturnToMainMenu(){
