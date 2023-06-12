@@ -12,6 +12,7 @@ TagManager:
   - MainMusic
   - HiddenPlayer
   - AlarmAudio
+  - FruitBasket
   layers:
   - Default
   - TransparentFX
