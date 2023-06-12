@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Light : MonoBehaviour
 {
-    private AudioSource AlarmAudio;
+    public static AudioSource AlarmAudio;
     //public GameObject AlarmAudio;
     // Start is called before the first frame update
     void Start()
@@ -20,15 +20,32 @@ public class Light : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.tag == "Player"){
-            Debug.Log("YOU'VE BEEN CAUGHT");
-            Animator bg = GameObject.FindWithTag("Background").GetComponent<Animator>();
-            bg.SetBool("IsCaught", true);
-            AudioSource mainMusic = GameObject.FindWithTag("MainMusic").GetComponent<AudioSource>();
-            mainMusic.Stop();
-            AlarmAudio = GameObject.FindWithTag("AlarmAudio").GetComponent<AudioSource>();
-            if(!AlarmAudio.isPlaying){
-                AlarmAudio.Play();
-            }
+            Caught();
+        }
+    }
+
+    public static void Caught(){
+        Debug.Log("YOU'VE BEEN CAUGHT");
+        // Animator bg = GameObject.FindWithTag("Background").GetComponent<Animator>();
+        // bg.SetBool("IsCaught", true);
+        AudioSource mainMusic = GameObject.FindWithTag("MainMusic").GetComponent<AudioSource>();
+        mainMusic.Stop();
+        AlarmAudio = GameObject.FindWithTag("AlarmAudio").GetComponent<AudioSource>();
+        if(!AlarmAudio.isPlaying){
+            AlarmAudio.Play();
+        }
+    }
+
+    public static void Hidden(){
+        // Animator bg = GameObject.FindWithTag("Background").GetComponent<Animator>();
+        // bg.SetBool("IsCaught", false);
+        AlarmAudio = GameObject.FindWithTag("AlarmAudio").GetComponent<AudioSource>();
+        if(AlarmAudio.isPlaying){
+            AlarmAudio.Stop();
+        }
+        AudioSource mainMusic = GameObject.FindWithTag("MainMusic").GetComponent<AudioSource>();
+        if(!mainMusic.isPlaying){
+            mainMusic.Play();
         }
     }
 }

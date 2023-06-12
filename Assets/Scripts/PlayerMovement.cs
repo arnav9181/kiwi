@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private float speed = 8f;
     public float jumpingPower = 8f;
+
+    public float fallForce = -10f;
     private bool isFacingRight = true;
     public Animator animator;
 
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (currentOneWayPlatform != null)
             {
+                Debug.Log("Going down!");
                 StartCoroutine(DisableCollision());
             }
         }
@@ -73,7 +76,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)){
             if(canHide){
                 isHidden = true;
-                sr.color = new Color(1f, 1f, 1f, .5f);
+                animator.SetBool("IsHidden", true);
+                //sr.color = new Color(1f, 1f, 1f, .5f);
                 canHide = false;
                 // GetComponent<BoxCollider2D>().enabled = false;
                 gameObject.tag = "HiddenPlayer";
@@ -85,9 +89,11 @@ public class PlayerMovement : MonoBehaviour
             if (hideTimer >= hideTime){
                 hideTimer = 0;
                 isHidden = false;
-                sr.color = new Color(1f, 1f, 1f, 1f);
+                animator.SetBool("IsHidden", false);
+                //sr.color = new Color(1f, 1f, 1f, 1f);
                 // GetComponent<BoxCollider2D>().enabled = false;
                 gameObject.tag = "Player";
+                Light.Hidden();
             }
         }
 
@@ -170,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
         BoxCollider2D platformCollider = currentOneWayPlatform.GetComponent<BoxCollider2D>();
 
         Physics2D.IgnoreCollision(playerCollider, platformCollider);
+        rb.AddForce(new Vector3(0,fallForce,0), ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.75f);
         Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
     }
