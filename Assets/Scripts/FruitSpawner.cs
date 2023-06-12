@@ -24,8 +24,27 @@ public class FruitSpawner : MonoBehaviour
         fruitBasket1 = Instantiate(fbPrefab, fb1pos, Quaternion.Euler(Vector3.zero));
         fruitBasket2 = Instantiate(fbPrefab, fb2pos, Quaternion.Euler(Vector3.zero));
 
-        fruitBasket1.GetComponent<FruitBasket>().currFruit = (FruitBasket.Fruit)Random.Range(0,6);
-        fruitBasket2.GetComponent<FruitBasket>().currFruit = (FruitBasket.Fruit)Random.Range(0,6);
+        int selectedFruit1 = Random.Range(0,6);
+        transform.parent.GetComponent<FruitManager>().fruitCheck[selectedFruit1] = true;
+        int selectedFruit2 = Random.Range(0,6);
+        transform.parent.GetComponent<FruitManager>().fruitCheck[selectedFruit2] = true;
+
+        fruitBasket1.GetComponent<FruitBasket>().currFruit = (FruitBasket.Fruit)selectedFruit1;
+        transform.parent.GetComponent<FruitManager>().fruitCount++;
+        if(transform.parent.GetComponent<FruitManager>().fruitCount == 15){
+            for(int i = 0; i < 6; i++){
+                if(!transform.parent.GetComponent<FruitManager>().fruitCheck[i]){
+                    fruitBasket2.GetComponent<FruitBasket>().currFruit = (FruitBasket.Fruit)i;
+                }
+                else{
+                    fruitBasket2.GetComponent<FruitBasket>().currFruit = (FruitBasket.Fruit)selectedFruit2;
+                }
+            }
+        }
+        else{
+            fruitBasket2.GetComponent<FruitBasket>().currFruit = (FruitBasket.Fruit)selectedFruit2;
+            transform.parent.GetComponent<FruitManager>().fruitCount++;
+        }
     }
 
     // Update is called once per frame
