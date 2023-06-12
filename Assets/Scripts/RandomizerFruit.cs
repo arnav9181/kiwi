@@ -21,8 +21,10 @@ public class RandomizerFruit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fruits = new List<string> { "Apple", "Banana", "Melon", "Cantalopue", "Grape", "Kale" };
-        PickAndAssignRandomFruits();
+        fruits = ChooseFruits(GameData.getFruits(), 3);
+        InitializeFruits(fruits);
+        GameData.setGroceryList(fruits);
+        // PickAndAssignRandomFruits();
     }
 
     // Update is called once per frame
@@ -31,41 +33,81 @@ public class RandomizerFruit : MonoBehaviour
         
     }
 
-
-    private void PickAndAssignRandomFruits()
-    {
-        List<string> tempFruits = new List<string>(fruits);
-        AssignFruit(text1, spriteObject1, tempFruits);
-        AssignFruit(text2, spriteObject2, tempFruits);
-        AssignFruit(text3, spriteObject3, tempFruits);
-    }
-
-    private void AssignFruit(TextMeshProUGUI textObject, GameObject spriteObject, List<string> fruitList)
-    {
-        string fruit = PickRandomFruit(fruitList);
-        textObject.text = fruit;
-        string path = "Assets/Sprites/" + fruit + ".png";
-
-        Sprite fruitSprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
-        if (fruitSprite != null)
-        {
-            Image sr = spriteObject.GetComponent<Image>();
-            if (sr != null)
-            {
-                sr.sprite = fruitSprite;
-                Debug.Log("Assigned " + fruit + " to " + sr.name);
-
+    private void InitializeFruits(List<string> fruitList) {
+        List<TextMeshProUGUI> fruitListTexts = new List<TextMeshProUGUI>(){ text1, text2, text3 };
+        List<GameObject> fruitListObjects = new List<GameObject>(){ spriteObject1, spriteObject2, spriteObject3 };
+        string spritePath;
+        string fruit;
+        TextMeshProUGUI fruitText;
+        GameObject fruitObject;
+        Sprite fruitSprite;
+        Image spriteImage;
+        for (int i=0; i<fruitList.Count; i++) {
+            fruit = fruitList[i];
+            spritePath = "Assets/Sprites/" + fruit + ".png";
+            fruitText = fruitListTexts[i];
+            fruitObject = fruitListObjects[i];
+            fruitText.text = fruit;
+            fruitSprite = AssetDatabase.LoadAssetAtPath<Sprite>(spritePath);
+            if (fruitSprite) {
+                spriteImage = fruitObject.GetComponent<Image>();
+                if (spriteImage) {
+                    spriteImage.sprite = fruitSprite;
+                }
+            } else {
+                Debug.Log("Sprite not found for fruit: " + fruit);
             }
-            else
-            {
-                Debug.LogError("No SpriteRenderer found on " + spriteObject.name);
-            }
-        }
-        else
-        {
-            Debug.LogError("Sprite not found for " + fruit);
+
         }
     }
+
+
+    // private void PickAndAssignRandomFruits()
+    // {
+    //     List<string> tempFruits = new List<string>(fruits);
+    //     AssignFruit(text1, spriteObject1, tempFruits);
+    //     AssignFruit(text2, spriteObject2, tempFruits);
+    //     AssignFruit(text3, spriteObject3, tempFruits);
+    // }
+
+    private List<string> ChooseFruits(List<string> fruitList, int count) {
+        List<string> chosenFruits = new List<string>();
+        string fruit;
+        while (chosenFruits.Count < count) {
+            fruit = PickRandomFruit(fruitList);
+            if (!chosenFruits.Contains(fruit)) {
+                chosenFruits.Add(fruit);   
+            }
+        }
+        return chosenFruits;
+    }
+
+    // private void AssignFruit(TextMeshProUGUI textObject, GameObject spriteObject, List<string> fruitList)
+    // {
+    //     string fruit = PickRandomFruit(fruitList);
+    //     textObject.text = fruit;
+    //     string path = "Assets/Sprites/" + fruit + ".png";
+
+    //     Sprite fruitSprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+    //     if (fruitSprite != null)
+    //     {
+    //         Image sr = spriteObject.GetComponent<Image>();
+    //         if (sr != null)
+    //         {
+    //             sr.sprite = fruitSprite;
+    //             Debug.Log("Assigned " + fruit + " to " + sr.name);
+
+    //         }
+    //         else
+    //         {
+    //             Debug.LogError("No SpriteRenderer found on " + spriteObject.name);
+    //         }
+    //     }
+    //     else
+    //     {
+    //         Debug.LogError("Sprite not found for " + fruit);
+    //     }
+    // }
 
     private string PickRandomFruit(List<string> fruitList)
     {

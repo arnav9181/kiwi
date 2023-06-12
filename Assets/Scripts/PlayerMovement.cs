@@ -182,8 +182,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Fruit") {
+        if (collision.gameObject.tag.Contains("Fruit")) {
             Destroy(collision.gameObject);
+            GameData.crossOut(collision.gameObject.tag.Split("_")[1]);
             //cm.coinCount++;
             collectAudio.Play(0);
         }
