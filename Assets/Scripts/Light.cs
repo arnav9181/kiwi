@@ -5,6 +5,7 @@ using UnityEngine;
 public class Light : MonoBehaviour
 {
     public static AudioSource AlarmAudio;
+    private static GameObject[] backgrounds;
     //public GameObject AlarmAudio;
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,11 @@ public class Light : MonoBehaviour
 
     public static void Caught(){
         Debug.Log("YOU'VE BEEN CAUGHT");
-        // Animator bg = GameObject.FindWithTag("Background").GetComponent<Animator>();
-        // bg.SetBool("IsCaught", true);
+        backgrounds = GameObject.FindGameObjectsWithTag("Background");
+        foreach(GameObject b in backgrounds){
+            Animator bg = b.GetComponent<Animator>();
+            bg.SetBool("IsCaught", true);
+        }
         AudioSource mainMusic = GameObject.FindWithTag("MainMusic").GetComponent<AudioSource>();
         mainMusic.Stop();
         AlarmAudio = GameObject.FindWithTag("AlarmAudio").GetComponent<AudioSource>();
@@ -39,6 +43,11 @@ public class Light : MonoBehaviour
     public static void Hidden(){
         // Animator bg = GameObject.FindWithTag("Background").GetComponent<Animator>();
         // bg.SetBool("IsCaught", false);
+        backgrounds = GameObject.FindGameObjectsWithTag("Background");
+        foreach(GameObject b in backgrounds){
+            Animator bg = b.GetComponent<Animator>();
+            bg.SetBool("IsCaught", false);
+        }
         AlarmAudio = GameObject.FindWithTag("AlarmAudio").GetComponent<AudioSource>();
         if(AlarmAudio.isPlaying){
             AlarmAudio.Stop();
