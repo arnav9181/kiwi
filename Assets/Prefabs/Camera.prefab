@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0.3
+  direction: 1
   speed: 10
 --- !u!1 &1106510696614129588
 GameObject:
@@ -244,8 +245,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.72248304, y: -0.0039021224}
-      - {x: -0.3578568, y: 0.14094645}
-      - {x: -0.3571529, y: -0.13496356}
+      - {x: -0.2456437, y: 0.123534106}
+      - {x: -0.24493988, y: -0.11948607}
 --- !u!114 &6060786746284939646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,4 +259,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff63d2e5ef55a43fb96a77e58c18dfcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlarmAudio: {fileID: 0}

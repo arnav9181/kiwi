@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; 
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameData : MonoBehaviour
 {
     private static List<string> fruitList = new List<string> { "Apple", "Banana", "Melon", "Cantalopue", "Grape", "Kale" };
     private static Dictionary<string, TextMeshProUGUI> groceryList;
+    private static float timer = 0f;
+    private static float timeToChange = 2f;
+    private static bool finished = false;
 
     public static List<string> getFruits() {
         return fruitList;
@@ -28,7 +32,9 @@ public class GameData : MonoBehaviour
         }
         
         if (groceryList.Count == 0) {
-            Debug.Log("You win!");
+            //Debug.Log("You win!");
+            finished = true;
+            //StartCoroutine(ReturnToMainMenu());
         }
         Debug.Log(groceryList.Count);
     }
@@ -41,6 +47,17 @@ public class GameData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(timer >= timeToChange){
+            SceneManager.LoadScene(0);
+        }
+        else if(finished){
+            Debug.Log("Timer is incrimenting");
+            timer += Time.deltaTime;
+        }
     }
+
+    // public IEnumerator ReturnToMainMenu(){
+    //     yield return new WaitForSeconds(2);
+    //     SceneManager.LoadScene(0);
+    // }
 }
