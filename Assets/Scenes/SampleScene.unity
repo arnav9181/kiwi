@@ -2092,7 +2092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567966611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.46, y: 2.46, z: 0.061975}
+  m_LocalPosition: {x: 11.9, y: 7.8, z: 0.061975}
   m_LocalScale: {x: 4.111399, y: 4.111399, z: 4.111399}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3127,6 +3127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 936423528}
+  - component: {fileID: 936423529}
   m_Layer: 0
   m_Name: FruitSpawners
   m_TagString: Untagged
@@ -3157,6 +3158,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &936423529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936423527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c725f9e5e8040f381476e9d22482c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitCheck: 010101010101
+  fruitCount: 1
 --- !u!4 &940011581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1106510696477417174, guid: acf4ce8a9c43742128f83122a68b4b54, type: 3}
