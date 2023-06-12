@@ -9,6 +9,10 @@ using UnityEngine.UI;
 public class RandomizerFruit : MonoBehaviour
 {
     private List<string> fruits;
+    private List<GameObject> fruitListObjects;
+    private List<TextMeshProUGUI> fruitListTexts;
+
+
     public TextMeshProUGUI  text1;
     public TextMeshProUGUI  text2;
     public TextMeshProUGUI  text3;
@@ -18,12 +22,16 @@ public class RandomizerFruit : MonoBehaviour
     public GameObject spriteObject3;
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         fruits = ChooseFruits(GameData.getFruits(), 3);
+        fruitListTexts = new List<TextMeshProUGUI>(){ text1, text2, text3 };
+        fruitListObjects = new List<GameObject>(){ spriteObject1, spriteObject2, spriteObject3 };
         InitializeFruits(fruits);
-        GameData.setGroceryList(fruits);
+        GameData.setGroceryList(fruits, fruitListTexts);
         // PickAndAssignRandomFruits();
     }
 
@@ -34,8 +42,7 @@ public class RandomizerFruit : MonoBehaviour
     }
 
     private void InitializeFruits(List<string> fruitList) {
-        List<TextMeshProUGUI> fruitListTexts = new List<TextMeshProUGUI>(){ text1, text2, text3 };
-        List<GameObject> fruitListObjects = new List<GameObject>(){ spriteObject1, spriteObject2, spriteObject3 };
+        
         string spritePath;
         string fruit;
         TextMeshProUGUI fruitText;

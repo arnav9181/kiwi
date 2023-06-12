@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; 
+using UnityEngine.UI;
 
 public class GameData : MonoBehaviour
 {
     private static List<string> fruitList = new List<string> { "Apple", "Banana", "Melon", "Cantalopue", "Grape", "Kale" };
-    private static HashSet<string> groceryList;
     private static Dictionary<string, TextMeshProUGUI> groceryList;
 
     public static List<string> getFruits() {
@@ -14,7 +15,7 @@ public class GameData : MonoBehaviour
 
     public static void setGroceryList(List<string> fruits, List<TextMeshProUGUI> listText) {
         groceryList = new Dictionary<string, TextMeshProUGUI>();
-        foreach (int i=0; i<fruits.Count; i++) {
+        for (int i=0; i<fruits.Count; i++) {
             groceryList.Add(fruits[i], listText[i]);
         }
 
@@ -22,6 +23,7 @@ public class GameData : MonoBehaviour
 
     public static void crossOut(string fruit) {
         if (groceryList.ContainsKey(fruit)) {
+            groceryList[fruit].text = "<s>" + groceryList[fruit].text + "</s>";
             groceryList.Remove(fruit);
         }
         
