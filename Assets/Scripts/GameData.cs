@@ -11,7 +11,7 @@ public class GameData : MonoBehaviour
     private static Dictionary<string, TextMeshProUGUI> groceryList;
     private static float timer = 0f;
     private static float timeToChange = 2f;
-    private static bool finished = false;
+    public static bool finished = false;
 
     public static List<string> getFruits() {
         return fruitList;
