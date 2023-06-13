@@ -2092,7 +2092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567966611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.9, y: 7.8, z: 0.061975}
+  m_LocalPosition: {x: -15.5, y: 17.1, z: 0.061975}
   m_LocalScale: {x: 4.111399, y: 4.111399, z: 4.111399}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2419,7 +2419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &758884194
 Transform:
   m_ObjectHideFlags: 0
@@ -4528,6 +4528,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850898647f0b9c546834be6f08ade0da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allFruitSprites:
+  - {fileID: 21300000, guid: fe4cf6c58756d6e448c499d96955357f, type: 3}
+  - {fileID: 21300000, guid: 0e673a6a3f8325b45abe03e3fb95b2dd, type: 3}
+  - {fileID: 21300000, guid: 8d5a1d128bc8beb46b68634b70ef1ec4, type: 3}
+  - {fileID: 21300000, guid: 23042ba2a231de54887d1119ae3adf53, type: 3}
+  - {fileID: 21300000, guid: d204c03fe3266c141a42f6456c6be32c, type: 3}
+  - {fileID: 21300000, guid: 47b62af706c9f41419fbff1b516e06b1, type: 3}
   text1: {fileID: 609978907}
   text2: {fileID: 271643912}
   text3: {fileID: 449655456}
