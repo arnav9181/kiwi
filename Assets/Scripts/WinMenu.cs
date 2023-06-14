@@ -15,6 +15,7 @@ public class WinMenu : MonoBehaviour
     {
         if (GameData.finished) {
             canvas.enabled = true;
+            GameData.finished = false;
         }
     }
 }
