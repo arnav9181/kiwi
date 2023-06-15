@@ -4,57 +4,66 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public bool randomizePatrolDistance = false;
+    public bool randomizeSpeed = false;
+    public bool chasePlayer = false;
+    public float minSpeed = 1f;
+    public float maxSpeed = 4f;
     public float speed = 2f;
     public float patrolDistance = 10f;
+    public float minPatrolDistance = 5f;
+    public float maxPatrolDistance = 15f;
+    public float chaseDistance = 5f;
+    public float verticalTolerance = 1f;  // How much vertical difference to tolerate when checking if the player is on the same level
     private float leftLimit;
     private float rightLimit;
-    private int direction = -1; // 1 for moving right, -1 for moving left
-    //private SpriteRenderer spriteRenderer; // To flip the sprite depending on the direction
+    private int direction = -1; 
+    private GameObject player;
     public Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        speed = randomizeSpeed ? Random.Range(minSpeed, maxSpeed) : speed;
+        patrolDistance = randomizePatrolDistance ? Random.Range(minPatrolDistance, maxPatrolDistance) : patrolDistance;
         float startingPosition = transform.position.x;
         animator.SetBool("IsWalking", true);
         leftLimit = startingPosition - patrolDistance;
         rightLimit = startingPosition + patrolDistance;
-        // spriteRenderer = GetComponent<SpriteRenderer>(); // get the SpriteRenderer component
-        // if (direction == 1)
-        // {
-        //     Flip();
-        // }
-        // else
-        // {
-        //     Flip();
-        // }
+        player = GameObject.FindGameObjectWithTag("Player");
     }
- 
-    // Update is called once per frame
+
     void Update()
     {
-        if (transform.position.x >= rightLimit)
+        if (chasePlayer && Vector2.Distance(transform.position, player.transform.position) <= chaseDistance &&
+            Mathf.Abs(transform.position.y - player.transform.position.y) <= verticalTolerance)  // Player is on the same level
         {
-            direction = -1; // move left
-            // spriteRenderer.flipX = false; // sprite faces left
-            Flip();
+            // Follow the player
+            direction = (transform.position.x < player.transform.position.x) ? 1 : -1;
         }
-        else if (transform.position.x <= leftLimit)
+        else
         {
-            direction = 1; // move right
-            // spriteRenderer.flipX = true; // sprite faces right
-            Flip();
+            if (transform.position.x >= rightLimit)
+            {
+                direction = -1; // move left
+            }
+            else if (transform.position.x <= leftLimit)
+            {
+                direction = 1; // move right
+            }
         }
 
+        Flip(direction);
         transform.position += new Vector3(direction * speed * Time.deltaTime, 0, 0);
     }
 
-    private void Flip()
+    private void Flip(int direction)
     {
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
+        if ((direction == 1 && transform.localScale.x > 0) || (direction == -1 && transform.localScale.x < 0))
+        {
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
+        }
     }
 }
-

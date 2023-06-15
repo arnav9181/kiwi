@@ -145,6 +145,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: chasePlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: patrolDistance
+      value: 5.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: maxPatrolDistance
+      value: 16.61
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -620,6 +644,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: chasePlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (11)
@@ -677,6 +713,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: chasePlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (9)
@@ -1063,6 +1111,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
@@ -1120,6 +1176,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -2824,6 +2888,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -2881,6 +2949,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (10)
@@ -4609,6 +4685,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (6)
@@ -4785,6 +4869,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: chasePlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (8)
@@ -5765,6 +5861,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: chaseDistance
+      value: 20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -6307,6 +6415,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -6726,6 +6838,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139577782}
     m_Modifications:
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizeSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
+      propertyPath: randomizePatrolDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2989592274904465307, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: m_Name
       value: Enemy (5)
