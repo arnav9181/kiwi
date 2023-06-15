@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.RightShift)){
+        if(Input.GetKeyDown(KeyCode.RightShift) && !isHidden){
             Attack();
         }
 
@@ -122,6 +122,12 @@ public class PlayerMovement : MonoBehaviour
 
         if(IsGrounded()){
             animator.SetBool("IsJumping", false);
+        }
+
+        if(GameData.finished){
+            animator.SetBool("IsFinished", true);
+            // isHidden = true;
+            gameObject.tag = "HiddenPlayer";
         }
 
         Flip();

@@ -5,8 +5,8 @@ using UnityEngine;
 public class FruitBasket : MonoBehaviour
 {
     public List<Sprite> fruitSprites;
-    public enum Fruit:int {Apple = 0, Banana = 1, Cantalopue = 2, Grape = 3, Kale = 4, Melon = 5}
-    private List<string> fruitTags =  new List<string> { "Fruit_Apple", "Fruit_Banana", "Fruit_Cantalopue", "Fruit_Grape", 
+    public enum Fruit:int {Apple = 0, Banana = 1, Cantaloupe = 2, Grape = 3, Kale = 4, Melon = 5}
+    private List<string> fruitTags =  new List<string> { "Fruit_Apple", "Fruit_Banana", "Fruit_Cantaloupe", "Fruit_Grape", 
     "Fruit_Kale",  "Fruit_Melon" };
     public Fruit currFruit;
 

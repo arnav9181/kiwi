@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class WinMenu : MonoBehaviour
 {
@@ -14,8 +16,13 @@ public class WinMenu : MonoBehaviour
     void Update()
     {
         if (GameData.finished) {
-            canvas.enabled = true;
-            GameData.finished = false;
+            StartCoroutine(ShowScreen());
         }
+    }
+
+    public IEnumerator ShowScreen(){
+        yield return new WaitForSeconds(2);
+        canvas.enabled = true;
+        GameData.finished = false;
     }
 }
