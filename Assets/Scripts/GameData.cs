@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameData : MonoBehaviour
 {
-    private static List<string> fruitList = new List<string> { "Apple", "Banana", "Melon", "Cantalopue", "Grape", "Kale" };
+    private static List<string> fruitList = new List<string> { "Apple", "Banana", "Melon", "Cantaloupe", "Grape", "Kale" };
     private static Dictionary<string, TextMeshProUGUI> groceryList;
     private static float timer = 0f;
     private static float timeToChange = 2f;
@@ -34,7 +34,7 @@ public class GameData : MonoBehaviour
         if (groceryList.Count == 0) {
             //Debug.Log("You win!");
             finished = true;
-            //StartCoroutine(ReturnToMainMenu());
+            // StartCoroutine(GameObject.FindWithTag("WinMenu").GetComponent<WinMenu>().ShowScreen());
         }
         Debug.Log(groceryList.Count);
     }
@@ -56,8 +56,9 @@ public class GameData : MonoBehaviour
         }
     }
 
-    // public IEnumerator ReturnToMainMenu(){
+    // public IEnumerator ShowWinScreen(){
     //     yield return new WaitForSeconds(2);
-    //     SceneManager.LoadScene(0);
+    //     //SceneManager.LoadScene(0);
+    //     GameObject.FindWithTag("WinMenu").GetComponent<WinMenu>().ShowScreen();
     // }
 }

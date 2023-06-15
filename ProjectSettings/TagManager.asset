@@ -19,6 +19,7 @@ TagManager:
   - Fruit_Banana
   - Fruit_Cantalopue
   - Fruit_Kale
+  - WinMenu
   layers:
   - Default
   - TransparentFX
