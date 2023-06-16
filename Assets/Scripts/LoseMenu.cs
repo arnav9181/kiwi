@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class LoseMenu : MonoBehaviour
 {
-
+    public float timeTowait = 0f;
+    public float lives = 3;
     public Canvas canvas2;
 
     void Start()
@@ -16,14 +17,14 @@ public class LoseMenu : MonoBehaviour
     void Update()
     {
     //Change this if condition to when timer runs out
-        if (GameData.finished) {
+        if (GameData.Caught == lives) {
             StartCoroutine(ShowScreen2());
         }
     }
 
     public IEnumerator ShowScreen2(){
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(timeTowait);
         canvas2.enabled = true;
-        GameData.finished = false;
+        GameData.Caught = 0;
     }
 }

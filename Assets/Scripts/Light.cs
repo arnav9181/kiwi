@@ -38,6 +38,7 @@ public class Light : MonoBehaviour
         if(!AlarmAudio.isPlaying){
             AlarmAudio.Play();
         }
+        GameData.Caught += 1;
     }
 
     public static void Hidden(){

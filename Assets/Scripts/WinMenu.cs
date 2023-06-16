@@ -24,5 +24,6 @@ public class WinMenu : MonoBehaviour
         yield return new WaitForSeconds(2);
         canvas.enabled = true;
         GameData.finished = false;
+        GameData.Caught = 0;
     }
 }

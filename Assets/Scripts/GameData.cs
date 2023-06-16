@@ -13,6 +13,8 @@ public class GameData : MonoBehaviour
     private static float timeToChange = 2f;
     public static bool finished = false;
 
+    public static int Caught = 0;
+
     public static List<string> getFruits() {
         return fruitList;
     }
