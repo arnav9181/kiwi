@@ -5703,7 +5703,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: chasePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7806854519737713761, guid: 2b574ddf6f72c394b866d2284c9defde, type: 3}
       propertyPath: randomizeSpeed

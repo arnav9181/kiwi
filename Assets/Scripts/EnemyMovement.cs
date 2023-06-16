@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     public float minPatrolDistance = 5f;
     public float maxPatrolDistance = 15f;
     public float chaseDistance = 5f;
-    public float verticalTolerance = 1f;  // How much vertical difference to tolerate when checking if the player is on the same level
+    public float verticalTolerance = 1f;  
     private float leftLimit;
     private float rightLimit;
     private int direction = -1; 
@@ -36,9 +36,8 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (chasePlayer && Vector2.Distance(transform.position, player.transform.position) <= chaseDistance &&
-            Mathf.Abs(transform.position.y - player.transform.position.y) <= verticalTolerance)  // Player is on the same level
+            Mathf.Abs(transform.position.y - player.transform.position.y) <= verticalTolerance)  
         {
-            // Follow the player
             direction = (transform.position.x < player.transform.position.x) ? 1 : -1;
         }
         else
